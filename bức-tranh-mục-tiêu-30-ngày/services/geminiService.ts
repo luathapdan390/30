@@ -2,10 +2,10 @@
 import { GoogleGenAI, Modality } from "@google/genai";
 import { GoalFormData } from '../types';
 
-if (!process.env.API_KEY) {
-  throw new Error("API_KEY environment variable is not set");
+if (!process.env.GEMINI_API_KEY) {
+  throw new Error("GEMINI_API_KEY environment variable is not set");
 }
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 function createPrompt(formData: GoalFormData): string {
   const formattedAmount = new Intl.NumberFormat('vi-VN').format(Number(formData.amount) || 0);
